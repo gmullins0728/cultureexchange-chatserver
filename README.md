@@ -35,4 +35,4 @@ To receive notification with chat loginurl, open `src/serverConfig.ts`.
 
 1. Update `sendEmail:true`.
 2. Update `emailTo` with your email address (gmail only).
-3. Do not update anything else unless you understand what you are doing.
+3. Please do not update anything else.
