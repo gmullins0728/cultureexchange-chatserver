@@ -41,7 +41,7 @@ export class ChatServer {
 
     private sockets(): void {
         this.io = require('socket.io').listen(this.server, { origins: '*:*' });
-        // Initialize our websocket server on port 5000
+  
         this.server.listen(this.port, () => {
             console.log(`Running server on port ${this.port}`);
         });
