@@ -7,6 +7,6 @@ exports.ServerConfig = {
     emailService: 'gmail',
     emailFrom: 'culture.exchange.test@gmail.com',
     emailFromPwd: 'test1234!',
-    emailTo: 'emiller22@gmail.com',
+    emailTo: '',
     sendEmail: false
 };
