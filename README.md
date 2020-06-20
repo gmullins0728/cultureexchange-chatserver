@@ -15,6 +15,7 @@ After pulling the project from github, open a terminal window and run the follow
 
 To start, run the following command:
 
+`$ cd cultureexchange-server`\
 `$ npm start`
 
 The socket.io server will be running on port 8080.
