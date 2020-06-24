@@ -2,11 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServerConfig = {
     production: false,
-    PORT: 8080,
-    appChatLoginURL: 'http://localhost:4200/chatlogin',
+    appChatLoginURL: 'https://the-culture-exchange.web.app/chatlogin',
     emailService: 'gmail',
     emailFrom: 'culture.exchange.test@gmail.com',
     emailFromPwd: 'test1234!',
-    emailTo: '',
-    sendEmail: false
+    emailTo: 'culture.exchange.test@gmail.com',
+    sendEmail: true
 };
