@@ -6,7 +6,8 @@ import { Message } from "./model/message";
 import { EmailUtil } from './email-util';
 import { ServerConfig } from './serverConfig';
 
-const PORT: number = ServerConfig.PORT;
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
 
 
 export class ChatServer {
@@ -29,6 +30,7 @@ export class ChatServer {
     private createApp(): void {
         this.app = express();
         this.app.use(cors());
+        this.app.use((req, res) => res.sendFile(INDEX, { root: __dirname }))
     }
 
     private createServer(): void {
@@ -41,7 +43,7 @@ export class ChatServer {
 
     private sockets(): void {
         this.io = require('socket.io').listen(this.server, { origins: '*:*' });
-  
+        // Initialize our websocket server on port 3000
         this.server.listen(this.port, () => {
             console.log(`Running server on port ${this.port}`);
         });
@@ -49,7 +51,7 @@ export class ChatServer {
 
     // listen for events from client
     private listen(): void {
-
+        setInterval(() => this.io.emit('time', new Date().toTimeString()), 1000);
         this.io.on('connect', (socket: any) => {
             console.log(`\nConnected client on port ${this.port}`);
 
