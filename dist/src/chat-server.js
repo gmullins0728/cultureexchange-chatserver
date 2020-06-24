@@ -15,8 +15,8 @@ const cors_1 = __importDefault(require("cors"));
 const http = __importStar(require("http"));
 const message_1 = require("./model/message");
 const email_util_1 = require("./email-util");
-const serverConfig_1 = require("./serverConfig");
-const PORT = serverConfig_1.ServerConfig.PORT;
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
 class ChatServer {
     constructor() {
         this.users = [];
@@ -30,6 +30,7 @@ class ChatServer {
     createApp() {
         this.app = express_1.default();
         this.app.use(cors_1.default());
+        this.app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
     }
     createServer() {
         this.server = http.createServer(this.app);
@@ -39,13 +40,14 @@ class ChatServer {
     }
     sockets() {
         this.io = require('socket.io').listen(this.server, { origins: '*:*' });
-        // Initialize our websocket server on port 5000
+        // Initialize our websocket server on port 3000
         this.server.listen(this.port, () => {
             console.log(`Running server on port ${this.port}`);
         });
     }
     // listen for events from client
     listen() {
+        setInterval(() => this.io.emit('time', new Date().toTimeString()), 1000);
         this.io.on('connect', (socket) => {
             console.log(`\nConnected client on port ${this.port}`);
             socket.on('joinRoom', (user) => {
