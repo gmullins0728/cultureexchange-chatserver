@@ -1,5 +1,5 @@
 {
-  "name": "Culture Exchange Chat Server",
+  "name": "cultureexchange-chatserver",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
