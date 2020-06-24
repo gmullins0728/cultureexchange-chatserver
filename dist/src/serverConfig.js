@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ServerConfig = {
     production: false,
-    appChatLoginURL: 'https://the-culture-exchange.web.app/chatlogin',
+    appChatLoginURL: 'https://the-culture-exchange.firebaseapp.com/chatlogin',
     emailService: 'gmail',
     emailFrom: 'culture.exchange.test@gmail.com',
     emailFromPwd: 'test1234!',
