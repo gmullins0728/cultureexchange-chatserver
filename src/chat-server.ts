@@ -51,7 +51,7 @@ export class ChatServer {
 
     // listen for events from client
     private listen(): void {
-        setInterval(() => this.io.emit('time', new Date().toTimeString()), 1000);
+        //setInterval(() => this.io.emit('time', new Date().toTimeString()), 1000);
         this.io.on('connect', (socket: any) => {
             console.log(`\nConnected client on port ${this.port}`);
 
